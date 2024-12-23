@@ -1,0 +1,112 @@
+/* 기본 css 리셋 */
+@import url("./styles/reset.css");
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+main {
+  width: 390px;
+  height: 800px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+}
+header {
+  border: 1px solid #ddd;
+}
+
+.wrap {
+  padding: 0 35px;
+}
+#main_title {
+  margin-top: 50px;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+#navigation {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 500px;
+  gap: 30px;
+}
+#navigation .nav_item a {
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: inline-block;
+}
+
+#navigation .nav_item.on {
+  background: #000;
+  border-radius: 100px;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+#navigation .nav_item.on a {
+  color: #fff;
+  font-weight: 600;
+}
+#navigation .nav_item.on .fa-heart {
+  color: crimson;
+  font-size: 14px;
+  display: inline-block;
+}
+
+/* #navigation .nav_item{ 
+    font-size: 1.2rem;
+    &:first-child {background:#000; ~~} 
+    } 
+    css 안쪽으로 계속 들어가는 중첩 구조에서는 선택자를  &먼저 넣은 상태로 그뒤에 . */
+
+section {
+  margin: 40px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      img {
+        width: 28px;
+        aspect-ratio: 1;
+      }
+      .desc {
+        display: flex;
+        flex-direction: column;
+        .user-name {
+          font-size: 0.7rem;
+        }
+        .date {
+          font-size: 0.6rem;
+          color: #c0c0c0;
+        }
+      }
+    }
+    .user-img {
+      height: 195px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .art-title {
+      font-weight: 700;
+      list-style: 1;
+    }
+  }
+}
