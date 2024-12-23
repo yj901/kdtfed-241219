@@ -65,7 +65,7 @@ header {
     font-size: 1.2rem;
     &:first-child {background:#000; ~~} 
     } 
-    css 안쪽으로 계속 들어가는 중첩 구조에서는 선택자를  &먼저 넣은 상태로 그뒤에 . */
+    css 안쪽으로 계속 들어가는 중첩 구조, 선택자를  &먼저 넣은 상태로 그뒤에 . */
 
 section {
   margin: 40px 0 0;
@@ -105,8 +105,26 @@ section {
       }
     }
     .art-title {
-      font-weight: 700;
-      list-style: 1;
+      font: 700 1.11rem/1 "arial";
+    }
+    .sub-detail {
+      p {
+        font: normal 0.58rem/1 "arial";
+      }
+    }
+    .art-info {
+      .like,
+      .view {
+        font: 700 0.82rem/1 "arial";
+        color: #e9e7e7;
+        i {
+          color: crimson;
+          margin-right: 3px;
+          &.fa-eye {
+            color: #ccc;
+          }
+        }
+      }
     }
   }
 }
