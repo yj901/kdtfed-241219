@@ -1,0 +1,25 @@
+@import "./styles/reset.scss";
+
+$contents-colors: (
+  bgColor: #ffde03,
+  subColor: #4833cc,
+  textColor: #ccc,
+);
+
+// $main-bg-color: #ffde03;
+// $sub-bg-color: #4833cc;
+// $text-main-color: #ccc;
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  main {
+    width: 428px;
+    height: 926px;
+    background: map-get($contents-colors, bgColor);
+    box-shadow: 4px 4px 8px rgba($color: #000000, $alpha: 0.6);
+  }
+}
