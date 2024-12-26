@@ -1,18 +1,10 @@
 @import "./styles/reset.scss";
-
-$contents-colors: (
-  bgColor: #ffde03,
-  subColor: #4833cc,
-  textColor: #ccc,
-);
-
-// $main-bg-color: #ffde03;
-// $sub-bg-color: #4833cc;
-// $text-main-color: #ccc;
+@import "./styles/variables.scss";
 
 body {
   width: 100%;
   height: 100vh;
+  font-size: 17px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,5 +13,76 @@ body {
     height: 926px;
     background: map-get($contents-colors, bgColor);
     box-shadow: 4px 4px 8px rgba($color: #000000, $alpha: 0.6);
+    padding-top: 60px;
+    #topContents {
+      text-align: center;
+      img {
+        margin-bottom: 30px;
+      }
+      h4 {
+        font-size: 1.17rem;
+        font-weight: 300;
+        span {
+          font-weight: 700;
+        }
+      }
+    }
+    #snsLogon {
+      text-align: center;
+      margin: 200px 0;
+      h4 {
+        font-size: 0.94rem;
+        font-weight: 300;
+        color: map-get($contents-colors, subColor);
+        margin-bottom: 10px;
+      }
+      ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+    }
+    #bottomContents {
+      .btn {
+        margin: 0 auto;
+        width: 340px;
+        height: 44px;
+        display: block;
+        background: map-get($contents-colors, btnColor);
+        color: map-get($contents-colors, textColor);
+        text-align: center;
+        line-height: 44px;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        i {
+          margin-right: 5px;
+        }
+        .fa-download {
+          transform: rotate(-90deg);
+        }
+      }
+      #userSearch {
+        text-align: center;
+        color: map-get($contents-colors, textColor);
+        font-size: 1.17rem;
+        span {
+          &:first-child {
+            position: relative;
+            margin-right: 78px;
+            &::after {
+              content: "";
+              display: inline-block;
+              position: absolute;
+              top: 25%;
+              right: -40px;
+              width: 2px;
+              height: 14px;
+              background: map-get($contents-colors, textColor);
+            }
+          }
+        }
+      }
+    }
   }
 }
