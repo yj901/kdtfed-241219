@@ -84,5 +84,28 @@ body {
         }
       }
     }
+    &.introBg {
+      background: map-get($contents-colors, lightColor);
+      padding: 60px 33px 135px;
+      header {
+        position: relative;
+        width: 100%;
+        height: 142px;
+        h4 {
+          font-size: 1.17rem;
+          font-weight: 400;
+          text-align: right;
+        }
+        p {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          font-size: 1.47rem;
+          span {
+            font-weight: 700;
+          }
+        }
+      }
+    }
   }
 }
