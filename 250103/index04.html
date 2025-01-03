@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        counter-increment: num;
+        &::before {
+          content: counter(num) ".";
+        }
+        &::after {
+          content: "- " attr(data-page) " page";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lorem ipsum dolor sit amet</h1>
+    <p data-page="52">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
+      voluptatibus ex neque consequatur libero, eaque quo saepe voluptatem
+      architecto quidem assumenda consectetur delectus fugit ut quos labore,
+      esse iusto corporis.
+    </p>
+    <p data-page="273">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis
+      saepe labore repudiandae ipsum ipsam adipisci rerum fuga recusandae
+      reprehenderit ullam sequi excepturi unde dignissimos, magnam
+      necessitatibus iste animi quidem nobis! Sunt modi pariatur tempore ipsum
+      facilis rerum, architecto recusandae odio unde ex veritatis. Porro veniam
+      voluptates eveniet assumenda nemo vero, nihil aut suscipit ut dolores
+      provident expedita odit quibusdam accusamus. Deleniti nulla vel tempore
+      et! Ea dolores similique eius dignissimos veniam quaerat deleniti
+      voluptatem nihil ipsam molestias distinctio officia, voluptatum optio
+      porro asperiores tempora illum itaque fugiat nulla laboriosam amet.
+      Officiis pariatur tenetur esse autem sapiente animi. Ipsum libero ducimus,
+      officia placeat impedit sunt deserunt voluptas quae pariatur, nulla nisi
+      quam suscipit soluta perferendis quod non, mollitia aliquam? Saepe,
+      minima.
+    </p>
+  </body>
+</html>
