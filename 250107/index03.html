@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 960px;
+        height: 100vh;
+        margin: 0 auto;
+        background: linear-gradient(
+            45deg,
+            #ff9a9e 0%,
+            #fad0c4 99%,
+            #fad0c4 100%
+          )
+          no-repeat;
+      }
+      main {
+        /* display: flex; */
+        /* overflow: hidden; */
+        display: grid;
+        grid-template-columns: 200px 1fr;
+      }
+      aside {
+        display: block;
+        /* width: 200px; */
+        /* float: left; */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>header</h1>
+    </header>
+    <nav>
+      <h2>navigation</h2>
+    </nav>
+    <main>
+      <aside>
+        <h2>aside</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut inventore,
+          aperiam dicta magni quis, nisi ipsam numquam reprehenderit facere cum
+          dignissimos at hic quod vel ex eaque, natus architecto repudiandae.
+        </p>
+      </aside>
+      <section>
+        <h2>section</h2>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima
+          temporibus minus est delectus assumenda id error fugit, voluptatum
+          distinctio sit reprehenderit, earum impedit iste consequatur, ipsam
+          doloribus ratione harum! Magnam.
+        </p>
+      </section>
+    </main>
+    <footer>
+      <h1>footer</h1>
+    </footer>
+  </body>
+</html>
