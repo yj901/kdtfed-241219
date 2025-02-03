@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style01.css" />
+    <script defer src="./script01.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <main id="container">
+      <h1>할인 가격 계산 프로그램 만들기</h1>
+      <form name="price-system" method="post" action="">
+        <img
+          class="sale_img"
+          src="https://as2.ftcdn.net/jpg/03/39/83/47/1000_F_339834746_Giafn0lDzGNVlTiGlT13tTY5KH0zEyRL.jpg"
+          alt="sale"
+        />
+        <ul>
+          <li>
+            <label for="price"> 원래가격 </label>
+            <input type="text" name="origin-price" id="origin-price" />
+          </li>
+          <li>
+            <label for="rate"> 할인율 </label>
+            <input type="text" name="rate" id="rate" />
+          </li>
+          <li>
+            <input id="btn" type="button" value="할인 가격 계산하기" />
+          </li>
+        </ul>
+      </form>
+      <div id="result"></div>
+    </main>
+  </body>
+</html>

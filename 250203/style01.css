@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  width: 100%;
+  height: 100vh;
+}
+body main {
+  position: relative;
+  width: 500px;
+  margin: 50px auto;
+}
+body main h1 {
+  text-align: center;
+}
+body main form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body main form ul {
+  width: 200px;
+}
+body main form ul li {
+  display: flex;
+  margin-bottom: 10px;
+}
+body main form ul li label {
+  text-align: right;
+  margin-right: 10px;
+  width: 70px;
+}
+body main form ul li input {
+  width: 100px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+}
+body main form ul li input:focus {
+  outline: none;
+}
+body main form ul li input#btn {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 20px;
+}
+body main form img {
+  width: 200px;
+}
+body main #result {
+  margin-top: 30px;
+  text-align: center;
+}
