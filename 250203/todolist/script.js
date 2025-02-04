@@ -43,13 +43,19 @@ const addItem = (todo) => {
 
 const handler = (event) => {
   event.preventDefault();
+  // const text = userInput.value.trim();
+  // if (text === "") return;
   const todo = {
     id: Date.now(),
     text: userInput.value,
   };
-  todos.push(todo);
-  addItem(todo);
-  save();
+
+  if (todo.text !== "") {
+    todos.push(todo);
+    addItem(todo);
+    save();
+  }
+
   userInput.value = "";
 };
 
