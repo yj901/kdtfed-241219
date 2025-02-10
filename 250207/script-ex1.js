@@ -3,7 +3,7 @@
 //if 조건문 으로 삼각형 가능 판단 필요
 
 const form = document.querySelector("form");
-const sides = document.querySelectorAll("input[type='text']");
+let sides = document.querySelectorAll("input[type='text']");
 // const side1 = document.querySelector("#side1");
 // const side2 = document.querySelector("#side2");
 // const side3 = document.querySelector("#side3");
@@ -18,11 +18,20 @@ form.addEventListener("submit", (e) => {
     let sideNum = Number(side.value);
     sidesArr.push(sideNum);
   });
-  console.log(sidesArr);
+  console.log(sidesArr[0], sidesArr[1], sidesArr[2]);
   //여기까지 하면 이제 각 변의 수 배열까진 획득
 
-  if (sidesArr[0] + sidesArr[1] > sidesArr[2]) {
+  if (sidesArr[0] && sidesArr[1] && sidesArr[2] !== 0) {
+    if (
+      sidesArr[0] < sidesArr[1] + sidesArr[2] &&
+      sidesArr[1] < sidesArr[0] + sidesArr[2] &&
+      sidesArr[2] < sidesArr[0] + sidesArr[1]
+    ) {
+      console.log("삼각형입니다");
+    } else {
+      console.log("삼각형이 만들어지지 않습니다");
+    }
+  } else {
+    console.log("값을 입력해주세요");
   }
-
-  //0+1 0+2 1+2 세개의 합이 나머지 한개보다 더 길어야한다는거
 });
