@@ -1,7 +1,9 @@
 const playButton = document.querySelector(".play-pause");
+const player = document.querySelector("#music-player");
 const video = document.querySelector("video");
 const progressCover = document.querySelector(".progress");
 const volumeBar = document.querySelector("input[type='range']");
+
 const fullButton = document.querySelector(".fullscreenBtn");
 const rateButtons = document.querySelectorAll(".rate");
 
@@ -66,16 +68,36 @@ const setRate = (e) => {
   video.playbackRate = rate;
 };
 
+const videoPoint = (e) => {
+  const mouseX = e.pageX - player.offsetLeft;
+  const progressBarWidth = progressCover.clientWidth;
+  const duration = video.duration;
+  const clickdTime = (mouseX / progressBarWidth) * duration;
+  video.currentTime = clickdTime;
+};
+
 playButton.addEventListener("click", togglePlay);
-video.addEventListener("click", togglePlay);
+video.addEventListener("pointerdown", togglePlay);
 video.addEventListener("timeupdate", updateTime);
 video.addEventListener("timeupdate", updateProgress);
 volumeBar.addEventListener("change", setVolume);
+
+progressCover.addEventListener("click", videoPoint);
+
 rateButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     setRate(e);
   });
 });
+
 fullButton.addEventListener("click", () => {
   video.requestFullscreen();
+});
+
+document.addEventListener("fullscreenchange", () => {
+  if (document.fullscreenElement) {
+    document.addEventListener("pointerdown", togglePlay);
+  } else {
+    document.removeEventListener("pointerdown", togglePlay);
+  }
 });
