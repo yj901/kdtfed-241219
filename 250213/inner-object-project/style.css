@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#container {
+  width: 550px;
+  margin: 100px auto 0;
+  padding: 0 60px;
+}
+#container h1 {
+  text-align: center;
+}
+#container form {
+  width: 100%;
+  margin: 40px 0 50px;
+}
+#container form label {
+  margin-right: 20px;
+}
+#container form label input[type=text] {
+  width: 80px;
+  height: 30px;
+  padding: 10px;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+#container form label input[type=text]:focus {
+  outline: none;
+}
+#container form #btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+#container #result {
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+#container #result p {
+  font-size: 18px;
+  line-height: 140%;
+}
+#container #result p#days, #container #result p#hours, #container #result p#age {
+  font-weight: bold;
+}
+#container #result p:nth-child(n+2) {
+  margin-top: 12px;
+}

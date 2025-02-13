@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#container {
+  width: 550px;
+  margin: 100px auto 0;
+  padding: 0 60px;
+  h1 {
+    text-align: center;
+  }
+  form {
+    width: 100%;
+    margin: 40px 0 50px;
+    label {
+      margin-right: 20px;
+      input[type="text"] {
+        width: 80px;
+        height: 30px;
+        padding: 10px;
+        text-align: center;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    #btn {
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+  }
+  #result {
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 20px;
+    p {
+      font-size: 18px;
+      line-height: 140%;
+      &#days,
+      &#hours,
+      &#age {
+        font-weight: bold;
+      }
+      &:nth-child(n + 2) {
+        margin-top: 12px;
+      }
+    }
+  }
+}
