@@ -1,4 +1,4 @@
-// slick slider
+// slick slider - 1
 $(".history-slider").slick({
   slidesToShow: 4,
   slidesToScroll: 2,
@@ -29,4 +29,14 @@ $(".history-slider").slick({
       },
     },
   ],
+});
+
+// slick slider -2
+$(".project-photo").slick({
+  dots: true,
+  infinte: true,
+  fade: true,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  cssEase: "linear",
 });
