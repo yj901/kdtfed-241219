@@ -1,4 +1,8 @@
-const productInfo = "./db.json";
+// const productInfo = "./db.json";
+// const productInfo =
+//   "https://raw.githubusercontent.com/yj901/array-project/refs/heads/main/db.json";
+const productInfo =
+  "https://my-json-server.typicode.com/yj901/array-project/data";
 
 const ul = document.querySelector("ul");
 
@@ -9,7 +13,7 @@ fetch(productInfo)
   .then((data) => {
     let idCounter = Date.now();
     const products = {
-      data: data.data.map((item) => ({
+      data: data.map((item) => ({
         ...item,
         id: idCounter++,
       })),
@@ -54,7 +58,10 @@ fetch(productInfo)
       ul.appendChild(li);
 
       li.addEventListener("click", () => {
-        window.location.href = "product-detail.html";
+        const url = `product-detail.html?category=${encodeURIComponent(
+          product.category
+        )}&name=${encodeURIComponent(product.name)}`;
+        window.location.href = url;
       });
     };
 
