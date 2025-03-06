@@ -422,7 +422,7 @@ body {
   width: 100%;
   height: auto;
   padding: 100px;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   .modal-content {
@@ -554,5 +554,8 @@ body {
       font-size: 3rem;
       cursor: pointer;
     }
+  }
+  &.active {
+    display: flex;
   }
 }

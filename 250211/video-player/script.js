@@ -74,6 +74,7 @@ const videoPoint = (e) => {
   const duration = video.duration;
   const clickdTime = (mouseX / progressBarWidth) * duration;
   video.currentTime = clickdTime;
+  console.log(mouseX, e.pageX, player.offsetLeft);
 };
 
 playButton.addEventListener("click", togglePlay);
