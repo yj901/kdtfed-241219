@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import EmotionItem from "./EmotionItem";
 import Button from "./Button";
-import { emotionList, getEmotionImgById, getFormattedDate } from "../util";
+import { emotionList, getFormattedDate } from "../util";
 
 const Wrapper = styled.div`
   padding: 20px 0;

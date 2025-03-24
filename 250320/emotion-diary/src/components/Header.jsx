@@ -4,18 +4,29 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   padding: 20px 0;
   border-bottom: 1px solid var(--border-color);
 `;
-const LeftChild = styled.div``;
-
-const Title = styled.div`
-  font-size: 2.6rem;
+const LeftChild = styled.div`
+  width: 25%;
+  display: flex;
+  justify-content: start;
 `;
 
-const RightChild = styled.div``;
+const Title = styled.div`
+  width: 50%;
+  font-size: 2.6rem;
+  display: flex;
+  justify-content: center;
+`;
+
+const RightChild = styled.div`
+  width: 25%;
+  display: flex;
+  justify-content: end;
+`;
 
 const Header = ({ title, leftChild, rightChild }) => {
   return (

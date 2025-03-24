@@ -10,7 +10,7 @@ const ButtonItem = styled.button`
   ${({ type }) =>
     type === "positive"
       ? `background: #64c964; color: #fff;`
-      : type === "nagative"
+      : type === "negative"
       ? `background: #fd565f; color: #fff;`
       : `background: #ccc; color: 000;`}
   cursor: pointer;
