@@ -105,7 +105,11 @@ const Editor = ({ initData, onSubmit }) => {
       <EditorSection>
         <EditorTitle>오늘의 날짜</EditorTitle>
         <EditorInfo>
-          <Input type="date" value={state.date} onChange={handleChangeDate} />
+          <Input
+            type="datetime-local"
+            value={state.date}
+            onChange={handleChangeDate}
+          />
         </EditorInfo>
       </EditorSection>
       <EditorSection>

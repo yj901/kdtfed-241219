@@ -14,27 +14,6 @@ const Loading = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-const mockData = [
-  {
-    id: "mock1",
-    date: new Date().getTime() - 1,
-    content: "mock1",
-    emotionId: 1,
-  },
-  {
-    id: "mock2",
-    date: new Date().getTime() - 2,
-    content: "mock2",
-    emotionId: 2,
-  },
-  {
-    id: "mock3",
-    date: new Date().getTime() - 3,
-    content: "mock3",
-    emotionId: 3,
-  },
-];
-
 const reducer = (state, action) => {
   switch (action.type) {
     case "INIT": {
@@ -73,21 +52,14 @@ function App() {
   const [data, dispatch] = useReducer(reducer, []);
   let idRef = useRef(0);
   useEffect(() => {
-    // dispatch({
-    //   type: "INIT",
-    //   data: mockData,
-    // });
-    // setIsDataLoaded(true);
     const rawData = localStorage.getItem("diary");
-    if (!rawData) {
-      setIsDataLoaded(true);
-      return;
-    }
-    const localData = JSON.parse(rawData);
+    const localData = rawData ? JSON.parse(rawData) : [];
+
     if (localData.length === 0) {
       setIsDataLoaded(true);
       return;
     }
+
     localData.sort((a, b) => Number(b.id) - Number(a.id));
     idRef.current = localData[0].id + 1;
 
@@ -103,12 +75,12 @@ function App() {
       type: "CREATE",
       data: {
         id: idRef.current,
-        date: new Date().getTime(),
+        date: new Date(date).getTime(),
         content,
         emotionId,
       },
     });
-    idRef += 1;
+    idRef.current += 1;
   };
 
   const onUpdate = (targetId, date, content, emotionId) => {
@@ -116,7 +88,7 @@ function App() {
       type: "UPDATE",
       data: {
         id: targetId,
-        date: new Date().getTime(),
+        date: new Date(date).getTime(),
         content,
         emotionId,
       },
