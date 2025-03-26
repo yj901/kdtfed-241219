@@ -108,15 +108,60 @@ body.nav_active nav {
 #fullpage .section#sec0 {
   background-image: linear-gradient(-30deg, #20e2d7 0%, #f9fea5 100%);
 }
+#fullpage .section#sec0 .inner svg,
+#fullpage .section#sec0 .inner img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+#fullpage .section#sec0 .inner .svg2 {
+  width: 657px;
+  transform: translate(-50%, -50%);
+}
+#fullpage .section#sec0 .inner .svg1 {
+  fill: none;
+  stroke: #fff;
+  transform: translate(-49.5%, -49.5%);
+}
 #fullpage .section#sec1 {
   background-image: linear-gradient(150deg, #aefdae 0%, #58d2e7 100%);
 }
-#fullpage .section#sec1 .inner .title {
-  transform: translateX(0) translateY(-100%);
+#fullpage .section#sec1 .inner {
+  flex-direction: column;
 }
-#fullpage .section#sec1.active .inner .title {
-  opacity: 1;
-  transform: translateX(0) translateY(0);
+#fullpage .section#sec1 .inner h1 img {
+  width: 400px;
+}
+#fullpage .section#sec1 .inner .gage_wrap {
+  width: 500px;
+  margin-top: 50px;
+}
+#fullpage .section#sec1 .inner .gage_wrap ul {
+  display: flex;
+}
+#fullpage .section#sec1 .inner .gage_wrap ul li {
+  width: 25%;
+  text-align: center;
+}
+#fullpage .section#sec1 .inner .gage_wrap ul li .gage {
+  width: 15px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.2);
+  position: relative;
+  padding: 5px;
+  margin: 0 auto;
+}
+#fullpage .section#sec1 .inner .gage_wrap ul li .gage .gage_in {
+  position: absolute;
+  bottom: 0;
+  width: 5px;
+  height: 20%;
+  background: #fff;
+}
+#fullpage .section#sec1 .inner .gage_wrap ul li .gage_tit {
+  color: #fff;
+  margin-top: 20px;
+  border: 1px solid #fff;
 }
 #fullpage .section#sec2 {
   background-image: linear-gradient(150deg, #b8fccc 0%, #5cd5e6 100%);

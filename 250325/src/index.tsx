@@ -30,6 +30,7 @@ body {
 
 :root {
   --light-color: #fff;
+  --circle-color: #a1dbfa;
 }
 `;
 

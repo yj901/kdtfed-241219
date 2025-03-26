@@ -107,19 +107,62 @@ body {
     }
     &#sec0 {
       background-image: linear-gradient(-30deg, #20e2d7 0%, #f9fea5 100%);
+      .inner {
+        svg,
+        img {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+        }
+        .svg2 {
+          width: 657px;
+          transform: translate(-50%, -50%);
+        }
+        .svg1 {
+          fill: none;
+          stroke: #fff;
+          transform: translate(-49.5%, -49.5%);
+        }
+      }
     }
     &#sec1 {
       background-image: linear-gradient(150deg, #aefdae 0%, #58d2e7 100%);
       .inner {
-        .title {
-          transform: translateX(0) translateY(-100%);
+        flex-direction: column;
+        h1 {
+          img {
+            width: 400px;
+          }
         }
-      }
-      &.active {
-        .inner {
-          .title {
-            opacity: 1;
-            transform: translateX(0) translateY(0);
+        .gage_wrap {
+          width: 500px;
+          margin-top: 50px;
+          ul {
+            display: flex;
+            li {
+              width: 25%;
+              text-align: center;
+              .gage {
+                width: 15px;
+                height: 150px;
+                background: rgba(#fff, 0.2);
+                position: relative;
+                padding: 5px;
+                margin: 0 auto;
+                .gage_in {
+                  position: absolute;
+                  bottom: 0;
+                  width: 5px;
+                  height: 20%;
+                  background: map-get($map: $color, $key: light);
+                }
+              }
+              .gage_tit {
+                color: map-get($map: $color, $key: light);
+                margin-top: 20px;
+                border: 1px solid #fff;
+              }
+            }
           }
         }
       }
