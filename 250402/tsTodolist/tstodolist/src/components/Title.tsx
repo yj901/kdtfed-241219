@@ -4,7 +4,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 const Label = styled.h1`
