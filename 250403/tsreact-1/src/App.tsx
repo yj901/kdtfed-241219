@@ -31,13 +31,11 @@ interface Post {
 
 function App() {
   const [posts, setPosts] = useState<Array<Post>>([]);
+  const [showForm, setShwoForm] = useState(false);
 
   const url = "https://jsonplaceholder.typicode.com/posts";
 
   useEffect(() => {
-    // setTimeout(() => {
-    //   setPosts(mockPost);
-    // }, 1000);
     fetch(url)
       .then((response) => response.json())
       .then((json) => setPosts(json))
@@ -53,9 +51,9 @@ function App() {
           <BlogPost key={post.id} title={post.title} body={post.body} />
         ))}
         <ButtonContainer>
-          <Button label="등록" />
+          <Button label="등록" onClick={() => setShwoForm(true)} />
         </ButtonContainer>
-        <Form />
+        {showForm && <Form onClose={() => setShwoForm(false)} />}
       </Container>
     </>
   );

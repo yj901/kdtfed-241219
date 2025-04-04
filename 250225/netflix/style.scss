@@ -543,6 +543,9 @@ body {
         height: 500px;
         margin: 20px 0;
         background: #fff;
+        iframe {
+          border: none;
+        }
       }
     }
   }
