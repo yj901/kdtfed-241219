@@ -1,0 +1,148 @@
+{
+  "products": [
+    {
+      "id": 0,
+      "img": "https://image.hm.com/assets/hm/30/94/3094b1ffb37f27638eceec87fb2b1b91de28244d.jpg?imwidth=657",
+      "title": "레이스 탑",
+      "price": 19900,
+      "sale": true,
+      "new": true,
+      "size": ["S", "M", "L"]
+    },
+    {
+      "id": 1,
+      "img": "https://image.msscdn.net/thumbnails/images/goods_img/20250214/4790601/4790601_17395139243656_big.jpg?w=1200",
+      "title": "야상",
+      "price": 25000,
+      "sale": true,
+      "new": false,
+      "size": ["S", "M", "L"]
+    },
+    {
+      "id": 2,
+      "img": "https://image.msscdn.net/thumbnails/images/goods_img/20250223/4820354/4820354_17403091101452_big.jpg?w=1200",
+      "title": "잠바",
+      "price": 21900,
+      "sale": false,
+      "new": true,
+      "size": ["S", "M", "L"]
+    },
+    {
+      "id": 3,
+      "img": "https://image.msscdn.net/thumbnails/images/goods_img/20250313/4893635/4893635_17418817945219_big.jpg?w=1200",
+      "title": "화이트 잠바",
+      "price": 35900,
+      "sale": true,
+      "new": false,
+      "size": ["S", "M", "L"]
+    },
+    {
+      "id": 4,
+      "img": "https://image.msscdn.net/thumbnails/images/goods_img/20250312/4889690/4889690_17424457683187_big.jpg?w=1200",
+      "title": "후드티",
+      "price": 22900,
+      "sale": false,
+      "new": true,
+      "size": ["S", "M", "L"]
+    },
+    {
+      "id": 5,
+      "img": "https://image.msscdn.net/thumbnails/images/goods_img/20250312/4889692/4889692_17428721725136_big.jpg?w=1200",
+      "title": "화이트 긴소매",
+      "price": 19000,
+      "sale": true,
+      "new": false,
+      "size": ["S", "M", "L"]
+    },
+    {
+      "id": 6,
+      "img": "https://image.msscdn.net/thumbnails/images/goods_img/20240131/3836802/3836802_17137541181059_big.jpg?w=1200",
+      "title": "체크무늬 셔츠",
+      "price": 12000,
+      "sale": false,
+      "new": true,
+      "size": ["S", "M", "L"]
+    },
+    {
+      "id": 7,
+      "img": "https://image.msscdn.net/thumbnails/images/goods_img/20250306/4866271/4866271_17417585165038_big.jpg?w=1200",
+      "title": "청 셔츠",
+      "price": 18000,
+      "sale": true,
+      "new": true,
+      "size": ["S", "M", "L"]
+    },
+    {
+      "id": 8,
+      "img": "https://image.msscdn.net/thumbnails/images/goods_img/20250218/4800317/4800317_17399278674462_big.jpg?w=1200",
+      "title": "바람막이",
+      "price": 15000,
+      "sale": true,
+      "new": false,
+      "size": ["S", "M", "L"]
+    },
+    {
+      "id": 9,
+      "img": "https://image.msscdn.net/thumbnails/images/goods_img/20250212/4781185/4781185_17393377839571_big.jpg?w=1200",
+      "title": "자켓",
+      "price": 12200,
+      "sale": true,
+      "new": true,
+      "size": ["S", "M", "L"]
+    },
+    {
+      "id": 10,
+      "img": "https://image.msscdn.net/thumbnails/images/goods_img/20250116/4725152/4725152_17370095025574_big.jpg?w=1200",
+      "title": "예일 후드티",
+      "price": 21000,
+      "sale": false,
+      "new": false,
+      "size": ["S", "M", "L"]
+    },
+    {
+      "id": 11,
+      "img": "https://image.msscdn.net/thumbnails/images/goods_img/20250313/4894805/4894805_17425429673924_big.jpg?w=1200",
+      "title": "체크 잠바",
+      "price": 15000,
+      "sale": true,
+      "new": true,
+      "size": ["S", "M", "L"]
+    },
+    {
+      "id": 12,
+      "img": "https://image.msscdn.net/thumbnails/images/goods_img/20250307/4870873/4870873_17424453981115_big.jpg?w=1200",
+      "title": "가디건",
+      "price": 19000,
+      "sale": true,
+      "new": false,
+      "size": ["S", "M", "L"]
+    },
+    {
+      "id": 13,
+      "img": "https://image.msscdn.net/thumbnails/images/goods_img/20250312/4887804/4887804_17428817175553_big.jpg?w=1200",
+      "title": "자켓",
+      "price": 17000,
+      "sale": false,
+      "new": true,
+      "size": ["S", "M", "L"]
+    },
+    {
+      "id": 14,
+      "img": "https://image.msscdn.net/thumbnails/images/goods_img/20250312/4887805/4887805_17425223638788_big.jpg?w=1200",
+      "title": "라벤터 티",
+      "price": 13000,
+      "sale": true,
+      "new": true,
+      "size": ["S", "M", "L"]
+    },
+    {
+      "id": 15,
+      "img": "https://image.msscdn.net/thumbnails/images/goods_img/20250123/4741303/4741303_17388149056257_big.jpg?w=1200",
+      "title": "화이트 반소매",
+      "price": 11000,
+      "sale": true,
+      "new": false,
+      "size": ["S", "M", "L"]
+    }
+  ]
+}
