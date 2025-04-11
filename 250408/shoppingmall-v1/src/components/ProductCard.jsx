@@ -3,15 +3,17 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  cursor: pointer;
   margin-top: 20px;
-  & > div {
-    line-height: 1.6;
-  }
 `;
 
 const Img = styled.img`
-  width: 300px;
-  height: 400px;
+  /* width: 300px; */
+  height: 230px;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 10px;

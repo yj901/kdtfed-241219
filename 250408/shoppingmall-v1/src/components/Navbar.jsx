@@ -8,6 +8,7 @@ import {
   faBars,
   faClose,
 } from "@fortawesome/free-solid-svg-icons";
+import { useAuth } from "../AuthContext";
 
 const Container = styled.div`
   width: 100%;
@@ -34,7 +35,8 @@ const MenuArea = styled.ul`
 
 const HeaderTop = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
   gap: 20px;
   position: absolute;
   top: 25px;
@@ -117,8 +119,10 @@ const menuList = [
   "슈퍼세일",
 ];
 
-const Navbar = ({ authenticate, setAuthenticate }) => {
+const Navbar = () => {
+  const { authenticate, setAuthenticate } = useAuth();
   const [width, setWidth] = useState();
+  const [opacity, setOpacity] = useState(0);
   const navigate = useNavigate();
 
   const onCheckEnter = (e) => {
@@ -148,17 +152,14 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
           ))}
         </MenuArea>
         <HeaderTop>
-          <SearchBox>
-            <FontAwesomeIcon icon={faSearch} />
-            <input type="text" placeholder="상품검색" onKeyUp={onCheckEnter} />
-          </SearchBox>
-
           {authenticate ? (
-            <LoginAuth>
-              <FontAwesomeIcon
-                icon={faUser}
-                onClick={() => setAuthenticate(false)}
-              />
+            <LoginAuth
+              onClick={() => {
+                setAuthenticate(false);
+                navigate("/");
+              }}
+            >
+              <FontAwesomeIcon icon={faUser} />
               <span>로그아웃</span>
             </LoginAuth>
           ) : (
@@ -167,9 +168,20 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
               <span>로그인</span>
             </LoginAuth>
           )}
+
+          <SearchBox>
+            <FontAwesomeIcon icon={faSearch} />
+            <input type="text" placeholder="상품검색" onKeyUp={onCheckEnter} />
+          </SearchBox>
         </HeaderTop>
-        <SideMenu width={width}>
-          <FontAwesomeIcon icon={faClose} onClick={() => setWidth(0)} />
+        <SideMenu width={width} opacity={opacity}>
+          <FontAwesomeIcon
+            icon={faClose}
+            onClick={() => {
+              setWidth(0);
+              setOpacity(0);
+            }}
+          />
           <ul className="side-menu-list">
             {menuList.map((menu, index) => (
               <li key={index}>{menu}</li>
@@ -177,7 +189,13 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
           </ul>
         </SideMenu>
         <ToggleButton>
-          <FontAwesomeIcon icon={faBars} onClick={() => setWidth(250)} />
+          <FontAwesomeIcon
+            icon={faBars}
+            onClick={() => {
+              setWidth(250);
+              setOpacity(1);
+            }}
+          />
         </ToggleButton>
       </Container>
     </>

@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import styled from "styled-components";
+import { useAuth } from "../AuthContext";
 
 const Wrapper = styled.div`
   width: 70%;
@@ -24,7 +25,8 @@ const Wrapper = styled.div`
   }
 `;
 
-const Login = ({ setAuthenticate }) => {
+const Login = () => {
+  const { setAuthenticate } = useAuth();
   const navigate = useNavigate();
 
   const loginUser = (e) => {
