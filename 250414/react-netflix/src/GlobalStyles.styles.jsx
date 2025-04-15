@@ -4,8 +4,11 @@ import reset from "styled-reset";
 const GlobalStyles = createGlobalStyle`
   ${reset}
 
+  
+
   * {
     box-sizing: border-box;
+    word-break: keep-all;
   }
 
   ul, li {
@@ -23,6 +26,11 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-size: 1.6rem;
+    width: 100%;
+    height: 2000px;
+    background: var(--dark-color);
+    color:#fff;
+    font-family: "Noto Sans KR", sans-serif;
   }
 
   :root {
