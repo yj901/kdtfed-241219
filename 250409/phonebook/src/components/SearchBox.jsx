@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Row, Col, Button, Form } from "react-bootstrap";
 import styled from "styled-components";
+import { searchByusername } from "../redux/reducer";
 
 const Container = styled.div`
   & input[type="text"] {
@@ -25,10 +26,7 @@ const SearchBox = () => {
 
   const searchByName = (e) => {
     e.preventDefault();
-    dispatch({
-      type: "SEARCH_BY_USERNAME",
-      payload: { keyword },
-    });
+    dispatch(searchByusername({ keyword }));
   };
   return (
     <Container>

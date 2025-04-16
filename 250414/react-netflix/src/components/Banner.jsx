@@ -30,11 +30,17 @@ const Img = styled.img`
 `;
 
 const BannerInfo = styled.div`
+  width: 1550px;
   position: absolute;
   z-index: 2;
   top: 50%;
-  left: 14px;
-  transform: translateY(-35%);
+  left: 50%;
+  transform: translate(-50%, -35%);
+
+  @media screen and (max-width: 1650px) {
+    width: 100%;
+    padding: 0 20px;
+  }
 `;
 
 const MovieTitle = styled.h1`

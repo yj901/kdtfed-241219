@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import styled from "styled-components";
+import { addContact } from "../redux/reducer";
 
 const Container = styled.div`
   & input[type="text"] {
@@ -25,22 +26,20 @@ const ContactForm = () => {
   const [phoneNum, setPhoneNum] = useState("");
   const dispatch = useDispatch();
 
-  const addContact = (e) => {
+  const addContactHandler = (e) => {
     e.preventDefault();
-    dispatch({
-      type: "ADD_CONTACT",
-      payload: {
-        name,
-        phoneNum,
-      },
-    });
+    if (!name || !phoneNum) return alert("정상적인 값을 입력해주세요");
+    dispatch(addContact({ name, phoneNum }));
+    setName("");
+    setPhoneNum("");
   };
   return (
     <Container>
-      <Form>
+      <Form onSubmit={addContactHandler}>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>이름</Form.Label>
           <Form.Control
+            value={name}
             type="text"
             placeholder="이름 입력"
             onChange={(e) => setName(e.target.value)}
@@ -50,12 +49,13 @@ const ContactForm = () => {
         <Form.Group className="mb-3" controlId="formBasic">
           <Form.Label>전화번호</Form.Label>
           <Form.Control
+            value={phoneNum}
             type="text"
             placeholder="전화번호 입력"
             onChange={(e) => setPhoneNum(e.target.value)}
           />
         </Form.Group>
-        <Button variant="primary" type="submit" onClick={addContact}>
+        <Button variant="primary" type="submit">
           추가
         </Button>
       </Form>

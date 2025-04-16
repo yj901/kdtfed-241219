@@ -4,11 +4,17 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   & .me-navbar {
+    width: 1550px;
+    margin: 0 auto;
     background: var(--dark-color);
+    @media screen and (max-width: 1650px) {
+      width: 100%;
+      padding: 0 20px;
+    }
   }
 
   & .inner-item {
-    padding: 8px 14px;
+    padding: 10px 0;
   }
 
   & .me-2 {

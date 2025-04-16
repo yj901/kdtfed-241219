@@ -21,11 +21,15 @@ const override = {
 };
 
 const Title = styled.h1`
-  margin: 50px 14px 30px;
-  width: 300px;
+  margin: 50px auto 30px;
+  width: 1550px;
   font-size: 2rem;
   border-radius: 4px;
   color: var(--light-color);
+  @media screen and (max-width: 1650px) {
+    width: 100%;
+    padding: 0 20px;
+  }
 `;
 
 const Home = () => {

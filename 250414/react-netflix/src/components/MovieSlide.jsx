@@ -16,7 +16,7 @@ const MovieSlide = ({ movies }) => {
     },
     desktop1: {
       breakpoint: { max: 3000, min: 1880 },
-      items: 6,
+      items: 5,
     },
     desktop2: {
       breakpoint: { max: 1880, min: 1600 },
@@ -43,7 +43,13 @@ const MovieSlide = ({ movies }) => {
   const movieList = movies?.results ?? [];
   return (
     <Wrapper>
-      <Carousel responsive={responsive} infinite={true}>
+      <Carousel
+        responsive={responsive}
+        infinite={true}
+        autoPlaySpeed={4000}
+        autoPlay={false}
+        centerMode={true}
+      >
         {movieList.map((item, index) => (
           <MovieCard key={index} item={item} />
         ))}
