@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, createSearchParams } from "react-router-dom";
 import styled from "styled-components";
 import { ProgressBar, Button } from "react-bootstrap";
 import { questionData } from "../assets/questiondata";
@@ -21,8 +21,14 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 2.5rem;
+  font-size: 2.8rem;
+  word-break: keep-all;
+  text-align: center;
+  margin: 0 30px;
   margin-bottom: 30px;
+  @media screen and (max-width: 780px) {
+    font-size: 2.2rem;
+  }
 `;
 
 const ButtonGroup = styled.div`
@@ -32,6 +38,18 @@ const ButtonGroup = styled.div`
     width: 350px;
     height: 200px;
     font-size: 2rem;
+    word-break: keep-all;
+  }
+  @media screen and (max-width: 780px) {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 30px;
+    & > button {
+      font-size: 1.9rem;
+      width: 100%;
+      height: 150px;
+      padding: 15px;
+    }
   }
 `;
 
@@ -78,7 +96,17 @@ const Question = () => {
     if (questionData.length !== questionNum + 1) {
       setQuestionNum(questionNum + 1);
     } else {
-      navigate("/result");
+      const mbti = newScore.reduce(
+        (acc, curr) =>
+          acc +
+          (curr.score >= 2 ? curr.id.substring(0, 1) : curr.id.substring(1, 2)),
+        ""
+      );
+
+      navigate({
+        pathname: "/result",
+        search: `?${createSearchParams({ mbti: mbti })}`,
+      });
     }
   };
 
