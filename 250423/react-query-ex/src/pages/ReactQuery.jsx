@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { usePostQuery } from "../usePost";
+import { useQuery } from "@tanstack/react-query";
 
 const Container = styled.div`
   width: 100%;
@@ -31,6 +32,14 @@ const ReactQuery = () => {
   // });
 
   const { data, isLoading, error, isError, refetch } = usePostQuery();
+
+  const results = useQuery({
+    conbine: (results) => {
+      return {
+        data: results.map((result) => result.data),
+      };
+    },
+  });
 
   console.log(isLoading, data, error, isError);
 

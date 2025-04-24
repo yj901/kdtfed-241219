@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 import styled from "styled-components";
 import { useQuery } from "@tanstack/react-query";
-import { fetchCoinInfo } from "../api";
-import { fetchCoinPrice } from "../api";
+import { fetchCoinInfo, fetchCoinPrice } from "../api";
+import { Helmet } from "react-helmet";
 
 const Container = styled.div`
   width: 100%;
@@ -58,10 +58,11 @@ const Overviewitem = styled.div`
 const Description = styled.div`
   width: 600px;
   background: ${({ theme }) => theme.accentColor};
-  color: ${({ theme }) => theme.textColor};
+  color: #fff;
   padding: 18px 24px;
   border-radius: 8px;
   font-size: 1.8rem;
+  font-weight: 300;
   line-height: 1.3;
 `;
 
@@ -179,6 +180,9 @@ const Coin = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>{state ? state : loading ? "Loading..." : infoData?.name}</title>
+      </Helmet>
       <Header>
         <Link to={"/"}>
           <Title>
@@ -213,11 +217,15 @@ const Coin = () => {
           <Overview>
             <Overviewitem>
               <span>Total Supply</span>
-              <span>{priceData?.total_supply}</span>
+              <span>
+                {priceData?.total_supply?.toLocaleString("ko-KR") ?? "no-data"}
+              </span>
             </Overviewitem>
             <Overviewitem>
               <span>Max Supply</span>
-              <span>{priceData?.max_supply}</span>
+              <span>
+                {priceData?.max_supply?.toLocaleString("ko-KR") ?? "no-data"}
+              </span>
             </Overviewitem>
           </Overview>
           <Tabs>

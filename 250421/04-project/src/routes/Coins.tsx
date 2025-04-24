@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { fetchCoins } from "../api";
+import { Helmet } from "react-helmet";
 
 const Container = styled.div`
   width: 100%;
@@ -90,7 +91,7 @@ const Img = styled.img`
   object-fit: cover;
 `;
 
-export interface coinInterface {
+interface coinInterface {
   id: string;
   name: string;
   symbol: string;
@@ -143,6 +144,9 @@ const Coins = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Coins List</title>
+      </Helmet>
       <Header>
         <Title>Coins</Title>
       </Header>
