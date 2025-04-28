@@ -1,7 +1,6 @@
 import React from "react";
-import { ITodo } from "../atoms";
+import { ITodo, todoState, Categories } from "../atoms";
 import { useSetRecoilState } from "recoil";
-import { todoState } from "../atoms";
 
 //자료구조 & 알고리즘
 // const food = ["pizza", "mango", "kimchi", "kimbab"];
@@ -35,18 +34,18 @@ const Todo = ({ text, category, id }: ITodo) => {
   return (
     <li>
       <span>{text}</span>
-      {category !== "TODO" && (
-        <button name="TODO" onClick={onclick}>
+      {category !== Categories.TODO && (
+        <button name={Categories.TODO + ""} onClick={onclick}>
           Todo
         </button>
       )}
-      {category !== "DOING" && (
-        <button name="DOING" onClick={onclick}>
+      {category !== Categories.DOING && (
+        <button name={Categories.DOING + ""} onClick={onclick}>
           Doing
         </button>
       )}
-      {category !== "DONE" && (
-        <button name="DONE" onClick={onclick}>
+      {category !== Categories.DONE && (
+        <button name={Categories.DONE + ""} onClick={onclick}>
           Done
         </button>
       )}
