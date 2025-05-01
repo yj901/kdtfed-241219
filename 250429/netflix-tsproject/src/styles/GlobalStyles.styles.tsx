@@ -32,6 +32,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-size: 1.6rem;
     font-family: "Source Sans 3", sans-serif;
+    background: ${({ theme }) => theme.black.veryDark};
   }
 `;
 

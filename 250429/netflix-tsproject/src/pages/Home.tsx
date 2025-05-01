@@ -1,15 +1,15 @@
 import { useState } from "react";
+import { useNavigate, useMatch } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import styled from "styled-components";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { getMovies, IGetMovieResult } from "../api";
 import { makeImagePath } from "../utils";
 
 const Container = styled.div`
   overflow: hidden;
   width: 100%;
-  height: 200vh;
-  background: ${({ theme }) => theme.black.veryDark};
+  height: 100%;
 `;
 
 const Loader = styled.div`
@@ -62,23 +62,76 @@ const Row = styled(motion.div)`
   margin-bottom: 10px;
 `;
 
-const Box = styled(motion.div)`
+const Box = styled(motion.div)<IBgPhoto>`
   width: auto;
   height: 200px;
-  background: ${({ theme }) => theme.white.darker};
+  background: url(${({ $bgPhoto }) => $bgPhoto}) center/cover no-repeat;
+  color: ${({ theme }) => theme.white.darker};
+  cursor: pointer;
+  &:first-child {
+    transform-origin: left center;
+  }
+  &:last-child {
+    transform-origin: right center;
+  }
 `;
 
-const Info = styled.div``;
+const Info = styled(motion.div)`
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
 
-const ModalBox = styled.div``;
+  h4 {
+    font-size: 1.4rem;
+    word-break: keep-all;
+    color: ${({ theme }) => theme.white.darker};
+    text-align: center;
+  }
+`;
 
-const Overlay = styled.div``;
+const ModalBox = styled(motion.div)`
+  position: absolute;
+  /* top: 80px; */
+  left: 0;
+  right: 0;
+  width: 50vw;
+  height: 80vh;
+  border-radius: 8px;
+  margin: 0 auto;
+  background: ${({ theme }) => theme.black.darker};
+  color: ${({ theme }) => theme.white.darker};
+`;
 
-const MovieCover = styled.div``;
+const Overlay = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+`;
 
-const MovieTitle = styled.h3``;
+const MovieCover = styled.div<IBgPhoto>`
+  width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  background: url(${({ $bgPhoto }) => $bgPhoto}) center/cover no-repeat;
+`;
 
-const MovieOverView = styled.p``;
+const MovieTitle = styled.h3`
+  font-size: 2.8rem;
+  margin: 20px;
+`;
+
+const MovieOverView = styled.p`
+  font-size: 1.5rem;
+  line-height: 1.4;
+  word-break: keep-all;
+  margin: 0 20px;
+`;
 
 interface IBgPhoto {
   $bgPhoto: string | undefined;
@@ -86,15 +139,33 @@ interface IBgPhoto {
 
 const rowVariants = {
   hidden: {
-    x: window.innerWidth + 10,
+    x: window.innerWidth,
   },
   visible: {
     x: 0,
   },
   exit: {
-    x: -window.innerWidth - 10,
+    x: -window.innerWidth,
   },
 };
+
+const boxVariants = {
+  normal: { scale: 1 },
+  hover: {
+    scale: 1.2,
+    y: -10,
+    transition: { delay: 0.1, type: "tween" },
+  },
+};
+
+const infoVariants = {
+  hover: {
+    opacity: 1,
+    transition: { delay: 0.1, type: "tween" },
+  },
+};
+
+const offset = 6;
 
 const Home = () => {
   const [index, setIndex] = useState(0);
@@ -104,15 +175,37 @@ const Home = () => {
     queryFn: getMovies,
   });
 
+  const history = useNavigate();
+
+  const modalMatch = useMatch("/movies/:movieId");
+
+  const { scrollY } = useScroll();
+
   const toggleLeaving = () => {
     setLeaving((prev) => !prev);
   };
 
   const inCreaseIndex = () => {
-    if (leaving) return;
-    toggleLeaving();
-    setIndex((prev) => prev + 1);
+    if (data) {
+      if (leaving) return;
+      toggleLeaving();
+      const totalMovies = data?.results.length - 2;
+      const maxIndex = Math.ceil(totalMovies / offset) - 1;
+      setIndex((prev) => (prev === maxIndex ? 0 : prev + 1));
+    }
   };
+
+  const onBoxClicked = (movieId: number) => {
+    history(`/movies/${movieId}`);
+  };
+
+  const onOverlayClick = () => {
+    history(`/`);
+  };
+
+  const clickedMovie =
+    modalMatch?.params.movieId &&
+    data?.results.find((movie) => movie.id === +modalMatch?.params.movieId!);
 
   return (
     <Container>
@@ -137,12 +230,58 @@ const Home = () => {
                 exit="exit"
                 transition={{ type: "tween", duration: 0.8 }}
               >
-                {[1, 2, 3, 4, 5, 6].map((item, index) => (
-                  <Box key={index}>{item}</Box>
-                ))}
+                {data?.results
+                  .slice(1)
+                  .slice(offset * index, index * offset + offset)
+                  .map((movie) => (
+                    <Box
+                      onClick={() => onBoxClicked(movie.id)}
+                      variants={boxVariants}
+                      initial="normal"
+                      key={movie.id}
+                      whileHover="hover"
+                      transition={{ type: "tween" }}
+                      layoutId={movie.id + ""}
+                      $bgPhoto={makeImagePath(
+                        movie.backdrop_path || "",
+                        "w500"
+                      )}
+                    >
+                      <Info variants={infoVariants} whileHover={"hover"}>
+                        <h4>{movie.title}</h4>
+                      </Info>
+                    </Box>
+                  ))}
               </Row>
             </AnimatePresence>
           </Slider>
+          <AnimatePresence>
+            {modalMatch ? (
+              <>
+                <Overlay
+                  onClick={onOverlayClick}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                />
+                <ModalBox
+                  layoutId={modalMatch?.params.movieId}
+                  style={{ top: scrollY.get() + 70 }}
+                >
+                  {clickedMovie && (
+                    <>
+                      <MovieCover
+                        $bgPhoto={makeImagePath(
+                          clickedMovie.backdrop_path || ""
+                        )}
+                      />
+                      <MovieTitle>{clickedMovie.title}</MovieTitle>
+                      <MovieOverView>{clickedMovie.overview}</MovieOverView>
+                    </>
+                  )}
+                </ModalBox>
+              </>
+            ) : null}
+          </AnimatePresence>
         </>
       )}
     </Container>
