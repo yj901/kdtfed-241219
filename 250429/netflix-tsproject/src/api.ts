@@ -44,4 +44,14 @@ export const searchGenres = () => {
   ).then((res) => res.json());
 };
 
-// https://api.themoviedb.org/3/genre/movie/list?language=ko-kr
+export const getReviews = (movieId: number | undefined) => {
+  return fetch(
+    `${BASE_PATH}/movie/${movieId}/reviews?api_key=${API_KEY}&page=1`
+  ).then((res) => res.json());
+};
+
+export const getVideos = (movieId: number | undefined) => {
+  return fetch(
+    `${BASE_PATH}/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`
+  ).then((res) => res.json());
+};

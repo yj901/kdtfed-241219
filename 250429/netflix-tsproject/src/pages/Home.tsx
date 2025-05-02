@@ -65,6 +65,7 @@ const Row = styled(motion.div)`
 const Box = styled(motion.div)<IBgPhoto>`
   width: auto;
   height: 200px;
+  border-radius: 8px;
   background: url(${({ $bgPhoto }) => $bgPhoto}) center/cover no-repeat;
   color: ${({ theme }) => theme.white.darker};
   cursor: pointer;
