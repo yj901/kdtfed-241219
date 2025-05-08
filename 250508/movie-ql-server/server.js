@@ -1,18 +1,18 @@
 import { ApolloServer, gql } from "apollo-server";
 
-//GET /allTweets => 지금까지의 전체 총 트윗자료를 가져와!
-//GET /tweet/8
-//GET /ping => 문자열의 값을 반환! (*반드시)
+// GET /allTweets => 지금까지의 전체 총 트윗자료를 가져와!!!
+// GET /tweet/8
+// GET /ping => 문자열의 값을 반환!!! (*반드시)
 
 let tweets = [
   {
     id: "1",
-    text: "First",
+    text: "First One!",
     userId: "2",
   },
   {
     id: "2",
-    text: "Second",
+    text: "Second One!",
     userId: "1",
   },
 ];
@@ -20,13 +20,13 @@ let tweets = [
 let users = [
   {
     id: "1",
-    firstName: "Jin",
-    lastName: "Back",
+    firstName: "David",
+    lastName: "Beckam",
   },
   {
     id: "2",
-    firstName: "Den",
-    lastName: "Front",
+    firstName: "Elon",
+    lastName: "Mask",
   },
 ];
 
@@ -40,7 +40,7 @@ const resolvers = {
     movie(root, { id }) {
       return fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
         .then((response) => response.json())
-        .then((json) => json.data.movies);
+        .then((json) => json.data.movie);
     },
     allUsers() {
       return users;
@@ -75,7 +75,6 @@ const resolvers = {
   },
   Tweet: {
     author({ userId }) {
-      // return users.find((user) => user.id === userId);
       const result = users.find((user) => user.id === userId);
       if (!result) {
         console.log("해당 자료가 없습니다!");
@@ -106,6 +105,7 @@ const typeDefs = gql`
   }
   type Query {
     allMovies: [Movie!]!
+    movie(id: String!): Movie
     allUsers: [User!]!
     allTweets: [Tweet!]!
     tweet(id: ID!): Tweet
@@ -131,7 +131,7 @@ const typeDefs = gql`
     genres: [String]!
     summary: String
     description_full: String!
-    synopsis: String!
+    synopsis: String
     yt_trailer_code: String!
     language: String!
     mpa_rating: String!
