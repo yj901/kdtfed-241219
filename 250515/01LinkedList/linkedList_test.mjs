@@ -1,4 +1,4 @@
-import { Node, LinkedList } from "./linkedList.mjs";
+import { Node, LinkedList } from "../linkedList.mjs";
 
 const node1 = new Node(1);
 const node2 = new Node(2);
@@ -13,7 +13,7 @@ console.log(node1.next.next.data);
 
 const list = new LinkedList();
 
-console.log("==== insertAt() 다섯번 호출 ====");
+console.log("==== insertAt() 다섯 번 호출 ====");
 list.insertAt(0, 0);
 list.insertAt(1, 1);
 list.insertAt(2, 2);
@@ -37,12 +37,12 @@ list.printAll();
 list.deleteAt(1);
 list.printAll();
 
-// console.log("==== deleteLast() 호출 ====");
-// list.insertAt(5);
-// list.deleteLast();
-// list.deleteLast();
-// list.deleteLast();
-// list.printAll();
+console.log("==== deleteLast() 호출 ====");
+list.insertLast(5);
+list.printAll();
+list.deleteLast();
+list.deleteLast();
+list.printAll();
 
 console.log("==== getNodeAt() 호출 ====");
 list.insertLast(1);
@@ -51,6 +51,5 @@ list.insertLast(3);
 list.insertLast(4);
 list.insertLast(5);
 
-let secoundNode = list.getNodeAt(2);
-
-console.log(secoundNode);
+let secondNode = list.getNodeAt(2);
+console.log(secondNode);

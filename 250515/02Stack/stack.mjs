@@ -1,4 +1,4 @@
-import { LinkedList } from "./linkedList.mjs";
+import { LinkedList } from "../01/linkedList.mjs";
 
 class Stack {
   constructor() {
@@ -25,4 +25,5 @@ class Stack {
     return this.list.count === 0;
   }
 }
+
 export { Stack };
