@@ -34,7 +34,14 @@
 const arr = [1, 2, 3, 4, 5];
 
 const sumArray = (arr) => {
-  return arr[arr.length - 1] + sumArray();
+  return arr[arr.length - 1] + sumArray(arr.slice(0));
 };
 
 console.log(sumArray(arr));
+
+// A, B, C
+// A => 원반1, 원반2, 원반3
+
+/*
+  원반1를 A에서 C로
+*/
