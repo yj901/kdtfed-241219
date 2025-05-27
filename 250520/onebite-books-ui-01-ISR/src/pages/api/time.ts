@@ -7,4 +7,5 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
     time: date.toLocaleString(),
   });
 };
+
 export default handler;

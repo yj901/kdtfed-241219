@@ -16,11 +16,23 @@ import { useRouter } from "next/router";
 //     "https://shopping-phinf.pstatic.net/main_3888828/38888282618.20230913071643.jpg",
 // };
 
+export const getStaticPaths = () => {
+  return {
+    paths: [
+      { params: { id: "1" } },
+      { params: { id: "2" } },
+      { params: { id: "3" } },
+    ],
+    // fallback: false,
+    // fallback: "blocking",
+    fallback: true,
+    // fallback 옵션 3가지 : false(*존재하지 않는 페이지 없음) & blocking(*최초에는 없는 페이지로 간주하나, 즉시 SSR방식으로 변화해서 해당 페이지를 생성) & true(*즉시생성 + 페이지만 미리 반환)
+  };
+};
+
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const id = context.params?.id;
   const book = await fetchOneBooks(Number(id));
-  // console.log(id);
-
   if (!book) {
     return {
       notFound: true,
@@ -29,12 +41,6 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   return {
     props: { book },
   };
-
-  // paths: [{ params: { id: 3 } }];
-  // fallback: false
-  // fallback: "blocking"
-  // fallback: true
-  // fallback 옵션 3가지 : false (*존재하지 않는 페이지 없음) & blocking (*최초에는 없는 페이지로 간주하나, 즉시 ssr방식으로 변화해서 해당 페이지를 생성) & true (*즉시생성 + 페이지만 미리 반환)
 };
 
 const Book = ({ book }: InferGetStaticPropsType<typeof getStaticProps>) => {

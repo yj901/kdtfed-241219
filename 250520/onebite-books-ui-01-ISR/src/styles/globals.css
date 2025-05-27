@@ -15,12 +15,12 @@ a {
 }
 
 :root {
-  --light: #fff;
-  --dark: #111;
-  --border: #ccc;
-  --accent: #dc143c;
-  --background: #fafafa;
-  --footer: #808080;
+  --light-color: #fff;
+  --dark-color: #000;
+  --border-color: #ccc;
+  --accent-color: #dc143c;
+  --background-color: #fafafa;
+  --footer-color: #808080;
 }
 
 html {
@@ -29,5 +29,5 @@ html {
 
 body {
   font-size: 1.6rem;
-  background: var(--background);
+  background: var(--background-color);
 }

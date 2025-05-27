@@ -1,6 +1,6 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { ReactNode, useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import style from "./seachable-layout.module.css";
+import style from "./searchable-layout.module.css";
 
 const SearchableLayout = ({ children }: { children: ReactNode }) => {
   const [search, setSearch] = useState("");
@@ -10,33 +10,35 @@ const SearchableLayout = ({ children }: { children: ReactNode }) => {
     setSearch(q || "");
   }, [q]);
 
-  const onChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
+  const onChangeSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
   };
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+
+  const onSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
     if (!search) return;
     router.push(`/search?q=${search}`);
   };
 
-  const onkeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      onSubmit(e);
+  const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      onSubmit(event);
     }
   };
-
   return (
     <div>
-      <form className={style.searchbar_container} onSubmit={onSubmit}>
-        <input
-          type="text"
-          placeholder="검색어를 입력하세요"
-          onKeyDown={onkeyDown}
-          onChange={onChangeSearch}
-          value={search}
-        />
-        <input type="submit" value="검색" />
-      </form>
+      <div>
+        <form className={style.searchbar_container} onSubmit={onSubmit}>
+          <input
+            value={search}
+            type="text"
+            onKeyDown={onKeyDown}
+            onChange={onChangeSearch}
+            placeholder="검색어를 입력하세요..."
+          />
+          <input type="submit" value="검색" />
+        </form>
+      </div>
       {children}
     </div>
   );

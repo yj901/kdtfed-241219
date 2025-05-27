@@ -1,7 +1,7 @@
 import { BookData } from "@/types";
 
-const fetchOneBooks = async (id: number): Promise<BookData | null> => {
-  const url = `http://localhost:12345/book/${id}`;
+const fetchOneBook = async (id: number): Promise<BookData | null> => {
+  let url = `http://localhost:12345/book/${id}`;
 
   try {
     const response = await fetch(url);
@@ -15,4 +15,4 @@ const fetchOneBooks = async (id: number): Promise<BookData | null> => {
   }
 };
 
-export default fetchOneBooks;
+export default fetchOneBook;
