@@ -1,9 +1,13 @@
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
+import Searchbar from "../../components/searchbar";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <>
-      <div>임시 서치바</div>
+      {/* <div>{new Date().toLocaleString()}</div> */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <Searchbar />
+      </Suspense>
       {children}
     </>
   );
